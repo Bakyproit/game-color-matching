@@ -25,7 +25,7 @@ function handTimerFinish(){
     // end Game
     gameStatus = GAME_STATUS.FINISHED ;
     setTimerText('Game Over ') ;
-    
+    showPlayAgainButton() ;  
 }
 // TODOs
 // 1. Generating colors using https://github.com/davidmerfield/randomColor
