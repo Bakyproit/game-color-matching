@@ -5,7 +5,7 @@ import { getColorElementList,
          getColorBackground,
          getColorListElement, 
          getInActiveColorList} from './selectors.js';
-import { createTimer, getRandomColorPairs, hidePlayAgainButton, setTimerText, showPlayAgainButton } from './utils.js';
+import { createTimer, getRandomColorPairs, hidePlayAgainButton, setBackgroundColor, setTimerText, showPlayAgainButton } from './utils.js';
 
 // Global variables
 let selections = []
@@ -50,6 +50,7 @@ function handleColorClick(liElement){
 
     const isMatch = firstColor === secondColor ;
     if(isMatch) {
+        setBackgroundColor(firstColor) ;
         // check win 
         const isWin = getInActiveColorList().length === 0 ;
         if(isWin){
@@ -118,6 +119,8 @@ function resetGame(){
     setTimerText('') ;
     // re-generate new colors
     initColors() ;
+    // reset background
+    setBackgroundColor('transparent') ;
 
     //start a new game
     startTimer() ;
